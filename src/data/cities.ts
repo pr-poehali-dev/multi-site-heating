@@ -180,6 +180,66 @@ export const CITIES: City[] = [
     domain: 'большое-село.промывка-отопления76.рф',
     domainLatin: 'bolshoe-selo.promyvka-otopleniya76.ru',
     isActive: true
+  },
+  {
+    id: 'gavrilov-yam',
+    name: 'Гаврилов-Ям',
+    slug: 'gavrilov-yam',
+    region: 'Ярославская область',
+    coordinates: { lat: 57.3045, lng: 39.8544 },
+    phone: '+7 (48534) 2-34-78',
+    email: 'gavrilov-yam@промывка-отопления76.рф',
+    address: 'г. Гаврилов-Ям, ул. Кирова, 18',
+    workingHours: '8:00 - 19:00',
+    priceModifier: 0.75,
+    domain: 'гаврилов-ям.промывка-отопления76.рф',
+    domainLatin: 'gavrilov-yam.promyvka-otopleniya76.ru',
+    isActive: true
+  },
+  {
+    id: 'lyubim',
+    name: 'Любим',
+    slug: 'lyubim',
+    region: 'Ярославская область',
+    coordinates: { lat: 58.3628, lng: 40.6849 },
+    phone: '+7 (48543) 1-89-45',
+    email: 'lyubim@промывка-отопления76.рф',
+    address: 'г. Любим, ул. Ленина, 30',
+    workingHours: '8:00 - 18:00',
+    priceModifier: 0.7,
+    domain: 'любим.промывка-отопления76.рф',
+    domainLatin: 'lyubim.promyvka-otopleniya76.ru',
+    isActive: true
+  },
+  {
+    id: 'myshkin',
+    name: 'Мышкин',
+    slug: 'myshkin',
+    region: 'Ярославская область',
+    coordinates: { lat: 57.7856, lng: 38.4547 },
+    phone: '+7 (48544) 5-67-23',
+    email: 'myshkin@промывка-отопления76.рф',
+    address: 'г. Мышкин, ул. Угличская, 8',
+    workingHours: '9:00 - 17:00',
+    priceModifier: 0.7,
+    domain: 'мышкин.промывка-отопления76.рф',
+    domainLatin: 'myshkin.promyvka-otopleniya76.ru',
+    isActive: true
+  },
+  {
+    id: 'poshekhonye',
+    name: 'Пошехонье',
+    slug: 'poshekhonye',
+    region: 'Ярославская область',
+    coordinates: { lat: 58.5067, lng: 39.1225 },
+    phone: '+7 (48546) 3-45-91',
+    email: 'poshekhonye@промывка-отопления76.рф',
+    address: 'г. Пошехонье, ул. Советская, 14',
+    workingHours: '8:00 - 17:00',
+    priceModifier: 0.7,
+    domain: 'пошехонье.промывка-отопления76.рф',
+    domainLatin: 'poshekhonye.promyvka-otopleniya76.ru',
+    isActive: true
   }
 ];
 
@@ -195,4 +255,25 @@ export const findCityByName = (name: string): City | undefined => {
 
 export const getActiveCities = (): City[] => {
   return CITIES.filter(city => city.isActive);
+};
+
+export const findNearestCity = (lat: number, lng: number): City | null => {
+  let nearestCity: City | null = null;
+  let minDistance = Infinity;
+
+  CITIES.forEach(city => {
+    if (!city.isActive) return;
+    
+    const distance = Math.sqrt(
+      Math.pow(city.coordinates.lat - lat, 2) + 
+      Math.pow(city.coordinates.lng - lng, 2)
+    );
+    
+    if (distance < minDistance) {
+      minDistance = distance;
+      nearestCity = city;
+    }
+  });
+
+  return nearestCity;
 };
