@@ -18,6 +18,7 @@ Allow: /
 
 # Sitemap
 Sitemap: https://промывка-отопления76.рф/sitemap.xml
+Sitemap: https://promyvka-otopleniya76.ru/sitemap.xml
 Sitemap: https://xn----7sbabw4ajkhg0al.xn--p1ai/sitemap.xml
 
 # Основные разделы
@@ -33,6 +34,31 @@ Disallow: /api
 Disallow: /.env
 Disallow: /private
 
-# Кириллические домены
+# Домены
 Host: промывка-отопления76.рф
+Host: promyvka-otopleniya76.ru
 Host: xn----7sbabw4ajkhg0al.xn--p1ai
+
+# Поддомены для городов
+Host: ростов.промывка-отопления76.рф
+Host: rostov.promyvka-otopleniya76.ru
+Host: переславль.промывка-отопления76.рф
+Host: pereslavl.promyvka-otopleniya76.ru
+Host: рыбинск.промывка-отопления76.рф
+Host: rybinsk.promyvka-otopleniya76.ru
+Host: тутаев.промывка-отопления76.рф
+Host: tutaev.promyvka-otopleniya76.ru
+Host: углич.промывка-отопления76.рф
+Host: uglich.promyvka-otopleniya76.ru
+Host: некрасовское.промывка-отопления76.рф
+Host: nekrasovskoe.promyvka-otopleniya76.ru
+Host: данилов.промывка-отопления76.рф
+Host: danilov.promyvka-otopleniya76.ru
+Host: кострома.промывка-отопления76.рф
+Host: kostroma.promyvka-otopleniya76.ru
+Host: борисоглебский.промывка-отопления76.рф
+Host: borisogleb.promyvka-otopleniya76.ru
+Host: иваново.промывка-отопления76.рф
+Host: ivanovo.promyvka-otopleniya76.ru
+Host: большое-село.промывка-отопления76.рф
+Host: bolshoe-selo.promyvka-otopleniya76.ru
