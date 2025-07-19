@@ -3,6 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import RutubePlayer from '@/components/RutubePlayer';
 
 interface Service {
   icon: string;
@@ -133,31 +134,21 @@ const Services = ({ services, workImages, reviews, team, currentCity, onReviewCl
             
             <TabsContent value="videos" className="mt-8">
               <div className="grid md:grid-cols-2 gap-6">
-                <Card className="p-6">
-                  <div className="relative h-48 rounded-lg overflow-hidden mb-4">
-                    <iframe 
-                      src="https://rutube.ru/play/embed/a/fa5e8db1c6b24c02b9b3e5dbaaf2c0e1/?skinColor=ffcd3d"
-                      frameBorder="0" 
-                      allow="clipboard-write; autoplay" 
-                      allowFullScreen
-                      className="w-full h-full"
-                    ></iframe>
-                  </div>
-                  <h4 className="font-semibold mb-2">Процесс гидродинамической промывки</h4>
-                  <p className="text-muted-foreground">Видео демонстрирует технологию промывки труб</p>
+                <Card className="overflow-hidden">
+                  <RutubePlayer
+                    videoId="fa5e8db1c6b24c02b9b3e5dbaaf2c0e1"
+                    title="Процесс гидродинамической промывки"
+                    description="Видео демонстрирует технологию промывки труб отопления"
+                    className="h-64"
+                  />
                 </Card>
-                <Card className="p-6">
-                  <div className="relative h-48 rounded-lg overflow-hidden mb-4">
-                    <iframe 
-                      src="https://rutube.ru/play/embed/a/b8a3f9e2d7c14f05a8c2d3b1e0f9a6b7/?skinColor=ffcd3d"
-                      frameBorder="0" 
-                      allow="clipboard-write; autoplay" 
-                      allowFullScreen
-                      className="w-full h-full"
-                    ></iframe>
-                  </div>
-                  <h4 className="font-semibold mb-2">До и после промывки радиатора</h4>
-                  <p className="text-muted-foreground">Результат нашей работы</p>
+                <Card className="overflow-hidden">
+                  <RutubePlayer
+                    videoId="b8a3f9e2d7c14f05a8c2d3b1e0f9a6b7"
+                    title="До и после промывки радиатора"
+                    description="Результат нашей работы - увеличение теплоотдачи в 2 раза"
+                    className="h-64"
+                  />
                 </Card>
               </div>
             </TabsContent>

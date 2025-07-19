@@ -3,9 +3,13 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import Modals from '@/components/Modals';
+import CMSEditor from '@/components/CMSEditor';
+import { Button } from '@/components/ui/button';
+import Icon from '@/components/ui/icon';
+import { useCityStore } from '@/stores/cityStore';
 
 const Index = () => {
-  const [currentCity, setCurrentCity] = useState('');
+  const { currentCity, detectLocation, showCityModal, isLocationDetected } = useCityStore();
   const [reviews, setReviews] = useState([
     {
       id: 1,
@@ -30,7 +34,8 @@ const Index = () => {
     showLocationModal: false,
     showOrderModal: false,
     showCalculatorModal: false,
-    showReviewModal: false
+    showReviewModal: false,
+    showCMSModal: false
   });
 
   // Калькулятор
@@ -65,33 +70,38 @@ const Index = () => {
     'Углич', 'Ростов', 'Тутаев', 'Данилов'
   ];
 
+  const getPriceWithModifier = (basePrice: number) => {
+    const modifier = currentCity?.priceModifier || 1.0;
+    return Math.round(basePrice * modifier);
+  };
+
   const services = [
     {
       icon: 'Wrench',
       title: 'Промывка радиаторов',
       description: 'Профессиональная очистка радиаторов от накипи и загрязнений',
-      price: 'от 800 руб/секция',
+      price: `от ${getPriceWithModifier(800)} руб/секция`,
       basePrice: 800
     },
     {
       icon: 'Zap',
       title: 'Гидродинамическая промывка',
       description: 'Очистка труб под высоким давлением',
-      price: 'от 1500 руб/м',
+      price: `от ${getPriceWithModifier(1500)} руб/м`,
       basePrice: 1500
     },
     {
       icon: 'Thermometer',
       title: 'Химическая промывка',
       description: 'Удаление отложений специальными реагентами',
-      price: 'от 2000 руб/система',
+      price: `от ${getPriceWithModifier(2000)} руб/система`,
       basePrice: 2000
     },
     {
       icon: 'CheckCircle',
       title: 'Диагностика системы',
       description: 'Проверка эффективности отопления',
-      price: 'от 500 руб',
+      price: `от ${getPriceWithModifier(500)} руб`,
       basePrice: 500
     }
   ];
@@ -117,14 +127,10 @@ const Index = () => {
   ];
 
   useEffect(() => {
-    const detectCity = () => {
-      setCurrentCity('Ярославль');
-      setModalState(prev => ({ ...prev, showLocationModal: true }));
-    };
-    
-    const timer = setTimeout(detectCity, 1000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (!isLocationDetected) {
+      detectLocation();
+    }
+  }, [detectLocation, isLocationDetected]);
 
   const calculatePrice = () => {
     let total = 0;
@@ -209,12 +215,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header 
-        currentCity={currentCity}
+        currentCity={currentCity?.name || 'Ярославль'}
         onLocationClick={() => setModalState(prev => ({ ...prev, showLocationModal: true }))}
       />
       
       <Hero 
-        currentCity={currentCity}
+        currentCity={currentCity?.name || 'Ярославль'}
         onOrderClick={() => setModalState(prev => ({ ...prev, showOrderModal: true }))}
         onCalculatorClick={() => setModalState(prev => ({ ...prev, showCalculatorModal: true }))}
       />
@@ -247,6 +253,20 @@ const Index = () => {
         onCalculatePrice={calculatePrice}
         onFileUpload={handleFileUpload}
       />
+
+      <CMSEditor
+        isOpen={modalState.showCMSModal}
+        onClose={() => setModalState(prev => ({ ...prev, showCMSModal: false }))}
+      />
+
+      {/* Плавающая кнопка CMS (только для администраторов) */}
+      <Button
+        onClick={() => setModalState(prev => ({ ...prev, showCMSModal: true }))}
+        className="fixed bottom-4 left-4 z-50 bg-purple-600 hover:bg-purple-700 text-white rounded-full w-12 h-12 p-0 shadow-lg"
+        title="Открыть CMS"
+      >
+        <Icon name="Settings" size={20} />
+      </Button>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
 import { City, GeolocationData } from '@/types/city';
 import { CITIES, findCityByName } from '@/data/cities';
 
@@ -83,79 +82,68 @@ const getBrowserLocation = (): Promise<GeolocationData | null> => {
   });
 };
 
-export const useCityStore = create<CityStore>()(
-  persist(
-    (set, get) => ({
-      currentCity: CITIES[0], // Ярославль по умолчанию
-      isLocationDetected: false,
-      showCityModal: false,
-      geolocation: null,
+export const useCityStore = create<CityStore>((set) => ({
+  currentCity: CITIES[0], // Ярославль по умолчанию
+  isLocationDetected: false,
+  showCityModal: false,
+  geolocation: null,
 
-      setCurrentCity: (city: City) => {
-        set({ currentCity: city });
-      },
+  setCurrentCity: (city: City) => {
+    set({ currentCity: city });
+  },
 
-      detectLocation: async () => {
-        // Сначала пробуем браузерную геолокацию
-        let location = await getBrowserLocation();
-        
-        // Если не получилось, используем IP
-        if (!location) {
-          location = await getLocationByIP();
-        }
-
-        if (location) {
-          set({ geolocation: location });
-
-          // Определяем город по координатам
-          const detectedCity = detectCityByCoordinates(location.lat, location.lng);
-          
-          if (detectedCity) {
-            // Если нашли точное совпадение, показываем модальное окно
-            set({ showCityModal: true });
-          } else if (location.city) {
-            // Если есть название города, ищем похожий
-            const cityByName = findCityByName(location.city);
-            if (cityByName) {
-              set({ showCityModal: true });
-            }
-          }
-          
-          set({ isLocationDetected: true });
-        }
-      },
-
-      confirmCity: (city: City) => {
-        set({ 
-          currentCity: city, 
-          showCityModal: false,
-          isLocationDetected: true 
-        });
-      },
-
-      showCityConfirmation: () => {
-        set({ showCityModal: true });
-      },
-
-      hideCityConfirmation: () => {
-        set({ showCityModal: false });
-      },
-
-      getSuggestedCities: (query: string) => {
-        if (!query || query.length < 2) return [];
-        
-        return CITIES.filter(city =>
-          city.name.toLowerCase().includes(query.toLowerCase()) ||
-          city.region.toLowerCase().includes(query.toLowerCase())
-        ).slice(0, 5);
-      }
-    }),
-    {
-      name: 'city-storage',
-      partialize: (state) => ({ 
-        currentCity: state.currentCity,
-        isLocationDetected: state.isLocationDetected 
-      })
+  detectLocation: async () => {
+    // Сначала пробуем браузерную геолокацию
+    let location = await getBrowserLocation();
+    
+    // Если не получилось, используем IP
+    if (!location) {
+      location = await getLocationByIP();
     }
-  )
-);
+
+    if (location) {
+      set({ geolocation: location });
+
+      // Определяем город по координатам
+      const detectedCity = detectCityByCoordinates(location.lat, location.lng);
+      
+      if (detectedCity) {
+        // Если нашли точное совпадение, показываем модальное окно
+        set({ showCityModal: true });
+      } else if (location.city) {
+        // Если есть название города, ищем похожий
+        const cityByName = findCityByName(location.city);
+        if (cityByName) {
+          set({ showCityModal: true });
+        }
+      }
+      
+      set({ isLocationDetected: true });
+    }
+  },
+
+  confirmCity: (city: City) => {
+    set({ 
+      currentCity: city, 
+      showCityModal: false,
+      isLocationDetected: true 
+    });
+  },
+
+  showCityConfirmation: () => {
+    set({ showCityModal: true });
+  },
+
+  hideCityConfirmation: () => {
+    set({ showCityModal: false });
+  },
+
+  getSuggestedCities: (query: string) => {
+    if (!query || query.length < 2) return [];
+    
+    return CITIES.filter(city =>
+      city.name.toLowerCase().includes(query.toLowerCase()) ||
+      city.region.toLowerCase().includes(query.toLowerCase())
+    ).slice(0, 5);
+  }
+}));
