@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Главная страница -->
+  <url>
+    <loc>https://промывка-отопления76.рф/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xn----7sbabw4ajkhg0al.xn--p1ai/"/>
+    <lastmod>2024-07-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Услуги -->
+  <url>
+    <loc>https://промывка-отопления76.рф/services</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xn----7sbabw4ajkhg0al.xn--p1ai/services"/>
+    <lastmod>2024-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Прайс-лист -->
+  <url>
+    <loc>https://промывка-отопления76.рф/prices</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xn----7sbabw4ajkhg0al.xn--p1ai/prices"/>
+    <lastmod>2024-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Галерея работ -->
+  <url>
+    <loc>https://промывка-отопления76.рф/gallery</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xn----7sbabw4ajkhg0al.xn--p1ai/gallery"/>
+    <lastmod>2024-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Отзывы -->
+  <url>
+    <loc>https://промывка-отопления76.рф/reviews</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xn----7sbabw4ajkhg0al.xn--p1ai/reviews"/>
+    <lastmod>2024-07-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Контакты -->
+  <url>
+    <loc>https://промывка-отопления76.рф/contacts</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xn----7sbabw4ajkhg0al.xn--p1ai/contacts"/>
+    <lastmod>2024-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Города обслуживания -->
+  <url>
+    <loc>https://промывка-отопления76.рф/yaroslavl</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xn----7sbabw4ajkhg0al.xn--p1ai/yaroslavl"/>
+    <lastmod>2024-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://промывка-отопления76.рф/rybinsk</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xn----7sbabw4ajkhg0al.xn--p1ai/rybinsk"/>
+    <lastmod>2024-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://промывка-отопления76.рф/pereslavl</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xn----7sbabw4ajkhg0al.xn--p1ai/pereslavl"/>
+    <lastmod>2024-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>

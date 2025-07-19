@@ -41,9 +41,9 @@ const Services = ({ services, workImages, reviews, team, currentCity, onReviewCl
   return (
     <>
       {/* Services */}
-      <section className="py-16">
+      <section className="py-16" id="services">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center mb-12">Наши услуги</h3>
+          <h2 className="text-3xl font-bold text-center mb-12">Профессиональные услуги промывки отопления в Ярославле</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -64,9 +64,9 @@ const Services = ({ services, workImages, reviews, team, currentCity, onReviewCl
       </section>
 
       {/* Price List */}
-      <section className="py-16">
+      <section className="py-16" id="prices">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center mb-12">Прайс-лист</h3>
+          <h2 className="text-3xl font-bold text-center mb-12">Цены на промывку отопления в Ярославле</h2>
           <div className="max-w-4xl mx-auto">
             <Card>
               <CardContent className="p-8">
@@ -107,9 +107,9 @@ const Services = ({ services, workImages, reviews, team, currentCity, onReviewCl
       </section>
 
       {/* Work Gallery */}
-      <section className="py-16">
+      <section className="py-16" id="gallery">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center mb-12">Фото и видео наших работ</h3>
+          <h2 className="text-3xl font-bold text-center mb-12">Результаты промывки отопления - фото и видео работ</h2>
           
           <Tabs defaultValue="photos" className="max-w-4xl mx-auto">
             <TabsList className="grid w-full grid-cols-2">
@@ -166,10 +166,10 @@ const Services = ({ services, workImages, reviews, team, currentCity, onReviewCl
       </section>
 
       {/* Reviews */}
-      <section className="py-16">
+      <section className="py-16" id="reviews">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-12">
-            <h3 className="text-3xl font-bold">Отзывы клиентов</h3>
+            <h2 className="text-3xl font-bold">Отзывы о промывке отопления в Ярославле</h2>
             <Button onClick={onReviewClick} className="bg-primary hover:bg-accent">
               <Icon name="MessageSquare" size={20} className="mr-2" />
               Оставить отзыв
@@ -207,9 +207,9 @@ const Services = ({ services, workImages, reviews, team, currentCity, onReviewCl
       </section>
 
       {/* Team */}
-      <section className="py-16">
+      <section className="py-16" id="team">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center mb-12">Наша команда</h3>
+          <h2 className="text-3xl font-bold text-center mb-12">Мастера по промывке отопления - наша команда</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {team.map((member, index) => (
               <Card key={index}>
@@ -232,9 +232,9 @@ const Services = ({ services, workImages, reviews, team, currentCity, onReviewCl
       </section>
 
       {/* Contact */}
-      <section className="py-16 bg-gray-900 text-primary">
+      <section className="py-16 bg-gray-900 text-primary" id="contacts">
         <div className="container mx-auto px-4 text-center">
-          <h3 className="text-3xl font-bold mb-8">Свяжитесь с нами</h3>
+          <h2 className="text-3xl font-bold mb-8">Заказать промывку отопления в Ярославле</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="flex flex-col items-center">
               <Icon name="Phone" size={32} className="mb-4" />
