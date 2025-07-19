@@ -8,10 +8,11 @@ export const CITIES: City[] = [
     region: 'Ярославская область',
     coordinates: { lat: 57.6261, lng: 39.8845 },
     phone: '+7 (4852) 58-76-43',
-    email: 'info@промывка-отопления76.ru',
+    email: 'info@промывка-отопления76.рф',
     address: 'г. Ярославль, ул. Первомайская, 61',
     workingHours: 'Круглосуточно',
     priceModifier: 1.0,
+    domain: 'промывка-отопления76.рф',
     isActive: true
   },
   {
@@ -21,10 +22,11 @@ export const CITIES: City[] = [
     region: 'Ярославская область',
     coordinates: { lat: 57.1887, lng: 39.4155 },
     phone: '+7 (48536) 7-89-12',
-    email: 'rostov@промывка-отопления76.ru',
+    email: 'rostov@промывка-отопления76.рф',
     address: 'г. Ростов, ул. Луначарского, 15',
     workingHours: '8:00 - 20:00',
     priceModifier: 0.9,
+    domain: 'ростов.промывка-отопления76.рф',
     isActive: true
   },
   {
@@ -34,10 +36,11 @@ export const CITIES: City[] = [
     region: 'Ярославская область',
     coordinates: { lat: 56.7386, lng: 38.8536 },
     phone: '+7 (48535) 9-45-67',
-    email: 'pereslavl@промывка-отопления76.ru',
+    email: 'pereslavl@промывка-отопления76.рф',
     address: 'г. Переславль-Залесский, ул. Советская, 23',
     workingHours: '9:00 - 18:00',
     priceModifier: 0.85,
+    domain: 'переславль.промывка-отопления76.рф',
     isActive: true
   },
   {
@@ -47,10 +50,11 @@ export const CITIES: City[] = [
     region: 'Ярославская область',
     coordinates: { lat: 58.0446, lng: 38.8586 },
     phone: '+7 (4855) 29-83-14',
-    email: 'rybinsk@промывка-отопления76.ru',
+    email: 'rybinsk@промывка-отопления76.рф',
     address: 'г. Рыбинск, ул. Крестовая, 87',
     workingHours: 'Круглосуточно',
     priceModifier: 1.1,
+    domain: 'рыбинск.промывка-отопления76.рф',
     isActive: true
   },
   {
@@ -60,10 +64,11 @@ export const CITIES: City[] = [
     region: 'Ярославская область',
     coordinates: { lat: 57.8836, lng: 39.5394 },
     phone: '+7 (48533) 5-62-89',
-    email: 'tutaev@промывка-отопления76.ru',
+    email: 'tutaev@промывка-отопления76.рф',
     address: 'г. Тутаев, ул. Луначарского, 34А',
     workingHours: '8:00 - 20:00',
     priceModifier: 0.8,
+    domain: 'тутаев.промывка-отопления76.рф',
     isActive: true
   },
   {
@@ -73,10 +78,11 @@ export const CITIES: City[] = [
     region: 'Ярославская область',
     coordinates: { lat: 57.5264, lng: 38.3286 },
     phone: '+7 (48532) 4-15-73',
-    email: 'uglich@промывка-отопления76.ru',
+    email: 'uglich@промывка-отопления76.рф',
     address: 'г. Углич, ул. Ярославская, 12',
     workingHours: '9:00 - 18:00',
     priceModifier: 0.9,
+    domain: 'углич.промывка-отопления76.рф',
     isActive: true
   }
 ];

@@ -12,6 +12,7 @@ export interface City {
   address: string;
   workingHours: string;
   priceModifier: number; // множитель для цен (1.0 = базовая цена)
+  domain: string; // кириллический домен для города
   isActive: boolean;
 }
 
