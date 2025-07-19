@@ -7,9 +7,10 @@ import CMSEditor from '@/components/CMSEditor';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { useCityStore } from '@/stores/cityStore';
+import { CITIES } from '@/data/cities';
 
 const Index = () => {
-  const { currentCity, detectLocation, showCityModal, isLocationDetected } = useCityStore();
+  const { currentCity, detectLocation, showCityModal, isLocationDetected, setCurrentCity } = useCityStore();
   const [reviews, setReviews] = useState([
     {
       id: 1,
@@ -189,8 +190,12 @@ const Index = () => {
     }
   };
 
-  const handleCityChange = (city) => {
-    setCurrentCity(city);
+  const handleCityChange = (cityName) => {
+    // Поиск города по имени и установка через store
+    const cityData = CITIES.find(c => c.name === cityName);
+    if (cityData) {
+      setCurrentCity(cityData);
+    }
   };
 
   const handleModalStateChange = (key, value) => {
@@ -230,13 +235,13 @@ const Index = () => {
         workImages={workImages}
         reviews={reviews}
         team={team}
-        currentCity={currentCity}
+        currentCity={currentCity?.name || 'Ярославль'}
         onReviewClick={() => setModalState(prev => ({ ...prev, showReviewModal: true }))}
       />
       
       <Modals
         cities={cities}
-        currentCity={currentCity}
+        currentCity={currentCity?.name || 'Ярославль'}
         services={services}
         modalState={modalState}
         orderForm={orderForm}
