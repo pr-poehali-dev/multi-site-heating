@@ -74,7 +74,7 @@ const Index = () => {
   ];
 
   const getPriceWithModifier = (basePrice: number) => {
-    const modifier = currentCity?.priceModifier || 1.0;
+    const modifier = userCity?.priceModifier || 1.0;
     return Math.round(basePrice * modifier);
   };
 
